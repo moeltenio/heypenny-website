@@ -1,0 +1,66 @@
+site: Ryan Moelter
+
+title: Ryan Moelter
+email: hello@ryanmoelter.com
+baseurl: ""
+url: https://ryanmoelter.com
+domain: ryanmoelter.com
+github_username: ryanmoelter
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /blog/:slug
+  photoshoots:
+    output: true
+    permalink: /photos/:slug
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "photoshoots"
+    values:
+      layout: "photoshoot"
+
+exclude:
+  - renovate.json
+  - README.md
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-image-size
+  - jekyll-figure
+
+paginate: 6
+paginate_path: "/blog/page:num/"

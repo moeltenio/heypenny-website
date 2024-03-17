@@ -1,0 +1,515 @@
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/lato.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(""), url("../fonts/lato-bold.woff2") format("woff2");
+}
+
+/* -- Reset ------------------------------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, a,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt,
+var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0
+}
+
+input, select, option, optgroup, textarea {
+  font: inherit
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+}
+
+img, object, embed {
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+legend, fieldset, select, textarea, input, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/* -- Color ------------------------------------------------------------------------------------- */
+
+:root {
+  --color-background-light: hsl(0, 0%, 100%);
+  --color-background-dark: hsl(27, 5%, 10%);
+  --color-background: var(--color-background-light);
+
+  --color-content-on-light-hsl: 27, 50%, 3%;
+  --color-content-on-dark-hsl: 0, 0%, 100%;
+  --color-content-hsl: var(--color-content-on-light-hsl);
+  --color-content: hsla(var(--color-content-hsl), 0.9);
+  --color-content-emphasized: hsla(var(--color-content-hsl), 1);
+  --color-content-secondary: hsla(var(--color-content-hsl), 0.6);
+  --color-content-subtle: hsla(var(--color-content-hsl), 0.3);
+
+  --color-accent-rgb: var(--color-eggplant-on-white-rgb);
+  --color-accent: rgb(var(--color-accent-rgb));
+  --color-accent-background: rgba(var(--color-accent-rgb), 0.10);
+
+  /* Colors inspired by https://iamkate.com/data/12-bit-rainbow */
+  /* Backgrounds and text */
+  --color-light: #fff7ef;
+  --color-light-selection: #c9bfb7;
+  --color-subtle-on-white: #a39991;
+  --color-subtle-on-dark: #847b74;
+  --color-dark-selection: #5e564f;
+  --color-dark: #211a14;
+
+  /* Eggplant */
+  --color-eggplant-bright: #a43594;
+  --color-eggplant-on-dark: #cb6cba;
+  --color-eggplant-on-dark-rgb: 203, 108, 186;
+  --color-eggplant-on-white: #9c478e;
+  --color-eggplant-on-white-rgb: 156, 71, 142;
+
+  /* Text colors */
+  --color-eggplant-text: var(--color-eggplant-on-white);
+  --color-subtle-text: var(--color-subtle-on-white);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-background-dark);
+    --color-content-hsl: var(--color-content-on-dark-hsl);
+
+    --color-content: hsla(var(--color-content-hsl), 0.9);
+    --color-content-emphasized: hsla(var(--color-content-hsl), 1);
+    --color-content-secondary: hsla(var(--color-content-hsl), 0.7);
+    --color-content-subtle: hsla(var(--color-content-hsl), 0.5);
+
+    --color-accent-rgb: var(--color-eggplant-on-dark-rgb);
+    --color-accent: rgb(var(--color-accent-rgb));
+    --color-accent-background: rgba(var(--color-accent-rgb), 0.15);
+
+    /* Text colors */
+    --color-eggplant-text: var(--color-eggplant-on-dark);
+    --color-subtle-text: var(--color-subtle-on-dark);
+  }
+}
+
+.dark {
+  --color-background: var(--color-background-dark);
+  --color-content-hsl: var(--color-content-on-dark-hsl);
+
+  --color-content: hsla(var(--color-content-hsl), 0.9);
+  --color-content-emphasized: hsla(var(--color-content-hsl), 1);
+  --color-content-secondary: hsla(var(--color-content-hsl), 0.7);
+  --color-content-subtle: hsla(var(--color-content-hsl), 0.5);
+  --color-border: hsla(var(--color-content-hsl), 0.10);
+}
+
+
+/* -- Generated typography variables ------------------------------------------------------------ */
+/* @link https://utopia.fyi/type/calculator?c=320,17,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1240;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+      (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1240px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  /* small */
+  --f--1-min: 14.17;
+  --f--1-max: 16.00;
+  --step--1: calc(
+      ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+      var(--fluid-bp)
+  );
+
+  /* body */
+  --f-0-min: 17.00;
+  --f-0-max: 20.00;
+  --step-0: calc(
+      ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+
+  /* heading/wordmark */
+  --f-5-min: 42.30;
+  --f-5-max: 61.04;
+  --step-5: calc(
+      ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+      var(--fluid-bp)
+  );
+}
+
+
+/* -- Generated space variables ----------------------------------------------------------------- */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --fc-3xs-min: calc(var(--fc-s-min) * 0.25);
+  --fc-3xs-max: calc(var(--fc-s-max) * 0.25);
+
+  --fc-2xs-min: calc(var(--fc-s-min) * 0.5);
+  --fc-2xs-max: calc(var(--fc-s-max) * 0.5);
+
+  --fc-xs-min: calc(var(--fc-s-min) * 0.75);
+  --fc-xs-max: calc(var(--fc-s-max) * 0.75);
+
+  --fc-s-min: calc(var(--f-0-min, 16));
+  --fc-s-max: calc(var(--f-0-max, 20));
+
+  --fc-m-min: calc(var(--fc-s-min) * 1.5);
+  --fc-m-max: calc(var(--fc-s-max) * 1.5);
+
+  --fc-l-min: calc(var(--fc-s-min) * 2);
+  --fc-l-max: calc(var(--fc-s-max) * 2);
+
+  --fc-xl-min: calc(var(--fc-s-min) * 3);
+  --fc-xl-max: calc(var(--fc-s-max) * 3);
+
+  --fc-2xl-min: calc(var(--fc-s-min) * 4);
+  --fc-2xl-max: calc(var(--fc-s-max) * 4);
+
+  --fc-3xl-min: calc(var(--fc-s-min) * 6);
+  --fc-3xl-max: calc(var(--fc-s-max) * 6);
+
+  /* T-shirt sizes */
+  --space-3xs: calc(((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-3xs-max) - var(--fc-3xs-min)) * var(--fluid-bp));
+  --space-2xs: calc(((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-2xs-min)) * var(--fluid-bp));
+  --space-xs: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp));
+  --space-s: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-s-min)) * var(--fluid-bp));
+  --space-m: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-m-min)) * var(--fluid-bp));
+  --space-l: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-l-min)) * var(--fluid-bp));
+  --space-xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+  --space-2xl: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+  --space-3xl: calc(((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-3xl-min)) * var(--fluid-bp));
+
+  /* One-up pairs */
+  --space-3xs-2xs: calc(((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-3xs-min)) * var(--fluid-bp));
+  --space-2xs-xs: calc(((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-2xs-min)) * var(--fluid-bp));
+  --space-xs-s: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-xs-min)) * var(--fluid-bp));
+  --space-s-m: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-s-min)) * var(--fluid-bp));
+  --space-m-l: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-m-min)) * var(--fluid-bp));
+  --space-l-xl: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-l-min)) * var(--fluid-bp));
+  --space-xl-2xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+  --space-2xl-3xl: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+
+  /* Custom pairs */
+  --space-s-l: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-s-min)) * var(--fluid-bp));
+}
+
+
+/* -- Space ------------------------------------------------------------------------------------- */
+
+:root {
+  --margin-horizontal: var(--space-m);
+  --margin-horizontal-small: var(--space-s-m);
+  --marginv-media: var(--space-m);
+  --corner-radius-media: var(--space-m);
+  --corner-radius-button: var(--space-s);
+  --corner-radius-thumbnail: var(--space-2xs);
+
+  --screen-margin-width: calc(100vw - var(--margin-horizontal) * 2);
+  --screen-small-margin-width: calc(100vw - var(--margin-horizontal-small) * 2);
+  --content-max-width: calc(var(--step-0) * 35);
+  --content-width: min(var(--screen-margin-width), var(--content-max-width));
+  --full-bleed-max-width: calc(var(--content-width) + var(--space-xl) * 2);
+  --full-bleed-width: min(var(--screen-small-margin-width), var(--full-bleed-max-width));
+  --gallery-max-width: calc(var(--content-width) + var(--space-3xl) * 4);
+  --gallery-width: min(var(--screen-small-margin-width), var(--gallery-max-width));
+
+  --form-max-width: calc(var(--step--1) * 20);
+}
+
+
+/* -- Typography -------------------------------------------------------------------------------- */
+
+/* cascadia-code - latin */
+@font-face {
+  font-family: "Cascadia Code";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: local(""),
+  url("../fonts/cascadia-code.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
+/* cascadia-code-italic - latin */
+@font-face {
+  font-family: "Cascadia Code";
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: local(""),
+  url("../fonts/cascadia-code-italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
+:root {
+  --font-family-heading: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-weight-heading: 700;
+  --font-weight-heading-code: 500;
+  --font-family-body: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-weight-body: 400;
+  --font-weight-body-bold: 700;
+  --font-weight-body-code: 375;
+}
+
+body {
+  font-size: var(--step-0);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body);
+  color: var(--color-content);
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--font-weight-heading);
+  font-family: var(--font-family-heading);
+  line-height: 1.15;
+  color: var(--color-content);
+}
+
+h1 {
+  font-size: var(--step-5);
+  margin-top: var(--space-xl);
+}
+
+p, ul, ol, figcaption {
+  font-size: var(--step-0);
+  margin: var(--space-2xs) 0;
+  line-height: 1.6;
+  color: var(--color-content);
+}
+
+li > ul, li > ol {
+  margin: 0;
+}
+
+code {
+  font-family: "Cascadia Code", Menlo, Monaco, Consolas, "Ubuntu Mono", "Courier New", monospace;
+  font-weight: var(--font-weight-body-code);
+}
+
+p code, li code, figcaption code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  position: relative;
+  margin: 0 1px;
+  padding: 6px;
+  font-size: .95em;
+  font-weight: var(--font-weight-body-code);
+  background: var(--color-code-background);
+  border-radius: 0.5em;
+  white-space: pre-wrap;
+  font-style: normal;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  font-weight: var(--font-weight-heading-code);
+  font-size: .97em;
+}
+
+.subtitle {
+  color: var(--color-content-subtle);
+}
+
+caption, figcaption, .post-caption, .small {
+  font-size: var(--step--1);
+}
+
+a {
+  color: var(--color-content-emphasized);
+  text-decoration: none;
+  transition-property: border-bottom-width, color;
+  transition-duration: var(--anim-duration-slow);
+  transition-timing-function: var(--anim-easing-emphasized);
+}
+
+a:hover {
+  color: var(--color-accent);
+  transition-duration: var(--anim-duration-fast);
+  transition-timing-function: var(--anim-easing);
+}
+
+p a, li a, figcaption a {
+  font-weight: var(--font-weight-body-bold);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+p a:hover, li a:hover, figcaption a:hover {
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.button {
+  display: inline-block;
+  color: var(--color-content-emphasized);
+  padding: var(--space-s) var(--space-m);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body-bold);
+  font-size: var(--step-0);
+  line-height: 1;
+  border-radius: var(--corner-radius-button);
+  cursor: pointer;
+  transition-property: filter, box-shadow, background-color;
+  transition-duration: var(--anim-duration-slow);
+  transition-timing-function: var(--anim-easing-emphasized);
+}
+.button.filled {
+  background: var(--color-eggplant-bright);
+  border: none !important;
+}
+.button.outlined {
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.button:hover {
+  transition-duration: var(--anim-duration-fast);
+  transition-timing-function: var(--anim-easing);
+}
+.button.filled:hover {
+  color: var(--color-content-emphasized);
+  filter: brightness(110%);
+}
+.button.outlined:hover {
+  background-color: var(--color-accent-background);
+}
+
+.button-inline {
+  cursor: pointer;
+}
+
+.button .arrow, .button-inline .arrow {
+  display: inline;
+  vertical-align: middle;
+  height: 1.25em;
+  margin: -0.35em -0.15em -0.15em 0;
+  transition-property: fill, translate;
+  transition-timing-function: var(--anim-easing-emphasized);
+  transition-duration: var(--anim-duration-slow);
+}
+.button-inline .arrow {
+  fill: var(--color-content);
+}
+.button.filled .arrow {
+  fill: var(--color-content-emphasized);
+}
+.button.outlined .arrow {
+  fill: var(--color-accent);
+}
+
+.button:hover .arrow, .button:focus .arrow, .button-inline:hover .arrow {
+  translate: 0.3em;
+  transition-timing-function: var(--anim-easing);
+  transition-duration: var(--anim-duration-fast);
+}
+.button.filled:hover .arrow, .button.filled:focus .arrow  {
+  fill: var(--color-content-emphasized)
+}
+.button.outlined:hover .arrow, .button.outlined:focus .arrow, .button-inline:hover .arrow {
+  fill: var(--color-accent);
+}
+
+
+/* -- Animation --------------------------------------------------------------------------------- */
+
+:root {
+  --anim-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-easing-emphasized: cubic-bezier(0.4, 0, 0, 1);
+  --anim-duration-fast: 0.15s;
+  --anim-duration-slow: 0.5s;
+
+  transition-duration: var(--anim-duration-fast);
+  transition-timing-function: var(--anim-easing);
+}
+
+
+/* -- Page -------------------------------------------------------------------------------------- */
+
+html, body {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-content);
+  transition: background-color 300ms, color 300ms;
+}
+p, h1 {
+  text-align: center;
+  transition: color 300ms;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.container .inside {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: var(--space-l-xl) var(--space-s-m);
+  box-sizing: border-box;
+  flex: 1;
+  justify-content: center;
+}
+
+.wordmark {
+  height: var(--space-xl);
+  width: auto;
+}
+.wordmark img {
+  height: var(--space-xl);
+  width: auto;
+}
+.testflight {
+  margin-top: var(--space-m);
+}
+.caption {
+  font-size: var(--step--1);
+  margin: 0;
+}
