@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <!-- Page Info -->
+  {% capture pageTitle %}{% if page.url == "/" %}{{ site.data.settings.basic_settings.site_title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}{%endcapture%}
   {% capture pageDescription %}{% if page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}{%endcapture%}
-  <title>{{ page.title }}</title>
+  <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
