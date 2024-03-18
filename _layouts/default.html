@@ -16,7 +16,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <!-- Page Info -->
-  {% capture pageTitle %}{% if page.url == "/" %}{{ site.data.settings.basic_settings.site_title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}{%endcapture%}
+  {% capture pageTitle %}{% if page.url == "/" %}{{ page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}{%endcapture%}
   {% capture pageDescription %}{% if page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}{%endcapture%}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
@@ -44,20 +44,12 @@
 
   <!-- Styles -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://use.typekit.net">
-  <link rel="preconnect" href="https://p.typekit.net">
-  <link rel="preload" href="https://use.typekit.net/pgv6mqt.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://use.typekit.net/pgv6mqt.css"></noscript>
   <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
-
-  <!-- photoswipe -->
-  <link rel="stylesheet" href="{{ '/css/photoswipe.css' | relative_url }}">
-
 </head>
 
 <body data-site-url="{{ site.url }}" data-page-url="{{ page.url | replace: 'index.html', '' }}">
 
-<!--   {% include header.html %} -->
+<!--   { % include header.html % } -->
 
   {% capture featured_image_position %}{% if page.featured_image_position %}{{ page.featured_image_position }}{% else %}center center{% endif %}{% endcapture %}
   <main class="page">
@@ -66,7 +58,7 @@
 
   </main>
 
-<!--   {% include footer.html %} -->
+  {% include footer.html %}
 
 </body>
 

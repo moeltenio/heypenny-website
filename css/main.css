@@ -173,7 +173,6 @@ legend, fieldset, select, textarea, input, button {
 }
 
 
-
 /* -- Generated typography variables ------------------------------------------------------------ */
 /* @link https://utopia.fyi/type/calculator?c=320,17,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
@@ -333,6 +332,31 @@ legend, fieldset, select, textarea, input, button {
 
 /* -- Typography -------------------------------------------------------------------------------- */
 
+/* fraunces - latin */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/fraunces-soft-regular.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/lato.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(""), url("../fonts/lato-bold.woff2") format("woff2");
+}
+
 /* cascadia-code - latin */
 @font-face {
   font-family: "Cascadia Code";
@@ -354,10 +378,10 @@ legend, fieldset, select, textarea, input, button {
 }
 
 :root {
-  --font-family-heading: lato, sans-serif;
-  --font-weight-heading: 700;
+  --font-family-heading: Fraunces, serif;
+  --font-weight-heading: 400;
   --font-weight-heading-code: 500;
-  --font-family-body: rooney-web, serif;
+  --font-family-body: Lato, sans-serif;
   --font-weight-body: 400;
   --font-weight-body-bold: 700;
   --font-weight-body-code: 375;
@@ -373,6 +397,7 @@ body {
 h1, h2, h3, h4 {
   font-weight: var(--font-weight-heading);
   font-family: var(--font-family-heading);
+  font-variation-settings: "SOFT" 50, "WONK" 0;
   line-height: 1.15;
   color: var(--color-content);
 }
