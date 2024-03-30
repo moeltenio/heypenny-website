@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: Privacy Policy for Heypenny
-last_modified_at: 2024-02-13
+last_modified_at: 2024-02-13 10:00:00 -0700
 ---
 
 Last updated: February 13, 2024
