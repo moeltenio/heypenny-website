@@ -506,8 +506,20 @@ p, h1 {
   height: var(--space-xl);
   width: auto;
 }
-.testflight {
+.flow-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-s);
   margin-top: var(--space-m);
+}
+.flow-row a {
+  border-bottom: none !important;
+}
+.store-icon {
+  height: calc(var(--space-s) * 2.5)
 }
 .caption {
   font-size: var(--step--1);
