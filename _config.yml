@@ -1,11 +1,10 @@
-site: Ryan Moelter
+site: Heypenny
 
-title: Ryan Moelter
-email: hello@ryanmoelter.com
+title: Heypenny
+email: support@moelten.io
 baseurl: ""
-url: https://ryanmoelter.com
-domain: ryanmoelter.com
-github_username: ryanmoelter
+url: https://heypenny.moelten.io
+domain: heypenny.moelten.io
 
 collections:
   pages:
