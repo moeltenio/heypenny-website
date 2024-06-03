@@ -1,5 +1,5 @@
 # Heypenny marketing site
 
-<https://heypenny.moelten.io>
+<https://heypenny.money>
 
-The Heypenny marketing website, hosted on Cloudflare pages.
+The Heypenny marketing website, hosted on DigitalOcean App Platform.
