@@ -13,4 +13,4 @@ Disallow: /
 User-agent: Omgilibot
 Disallow: /
 
-Sitemap: https://heypenny.moelten.io/sitemap.xml
+Sitemap: https://heypenny.money/sitemap.xml

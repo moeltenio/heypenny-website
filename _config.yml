@@ -3,8 +3,8 @@ site: Heypenny
 title: Heypenny
 email: support@moelten.io
 baseurl: ""
-url: https://heypenny.moelten.io
-domain: heypenny.moelten.io
+url: https://heypenny.money
+domain: heypenny.money
 
 collections:
   pages:
