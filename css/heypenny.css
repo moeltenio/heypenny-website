@@ -1,18 +1,3 @@
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local(""), url("../fonts/lato.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local(""), url("../fonts/lato-bold.woff2") format("woff2");
-}
-
 /* -- Reset ------------------------------------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, a,
@@ -164,7 +149,13 @@ legend, fieldset, select, textarea, input, button {
 }
 
 :root {
-  /* small */
+  --f--2-min: 11.81;
+  --f--2-max: 12.80;
+  --step--2: calc(
+      ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+      var(--fluid-bp)
+  );
+
   --f--1-min: 14.17;
   --f--1-max: 16.00;
   --step--1: calc(
@@ -172,7 +163,6 @@ legend, fieldset, select, textarea, input, button {
       var(--fluid-bp)
   );
 
-  /* body */
   --f-0-min: 17.00;
   --f-0-max: 20.00;
   --step-0: calc(
@@ -180,7 +170,34 @@ legend, fieldset, select, textarea, input, button {
       var(--fluid-bp)
   );
 
-  /* heading/wordmark */
+  --f-1-min: 20.40;
+  --f-1-max: 25.00;
+  --step-1: calc(
+      ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-2-min: 24.48;
+  --f-2-max: 31.25;
+  --step-2: calc(
+      ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-3-min: 29.38;
+  --f-3-max: 39.06;
+  --step-3: calc(
+      ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-4-min: 35.25;
+  --f-4-max: 48.83;
+  --step-4: calc(
+      ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+
   --f-5-min: 42.30;
   --f-5-max: 61.04;
   --step-5: calc(
@@ -272,31 +289,54 @@ legend, fieldset, select, textarea, input, button {
 
 /* -- Typography -------------------------------------------------------------------------------- */
 
-/* cascadia-code - latin */
 @font-face {
-  font-family: "Cascadia Code";
+  font-family: "Fraunces";
   font-style: normal;
-  font-weight: 200 700;
+  font-weight: 400;
   font-display: swap;
-  src: local(""),
-  url("../fonts/cascadia-code.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  src: local(""), url("../fonts/fraunces-soft-regular.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/lato.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(""), url("../fonts/lato-bold.woff2") format("woff2");
+}
+
+/* cascadia-code - latin */
+/*@font-face {*/
+/*  font-family: "Cascadia Code";*/
+/*  font-style: normal;*/
+/*  font-weight: 200 700;*/
+/*  font-display: swap;*/
+/*  src: local(""),*/
+/*  url("../fonts/cascadia-code.woff2") format("woff2"); !* Chrome 26+, Opera 23+, Firefox 39+ *!*/
+/*}*/
 
 /* cascadia-code-italic - latin */
-@font-face {
-  font-family: "Cascadia Code";
-  font-style: italic;
-  font-weight: 200 700;
-  font-display: swap;
-  src: local(""),
-  url("../fonts/cascadia-code-italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
-}
+/*@font-face {*/
+/*  font-family: "Cascadia Code";*/
+/*  font-style: italic;*/
+/*  font-weight: 200 700;*/
+/*  font-display: swap;*/
+/*  src: local(""),*/
+/*  url("../fonts/cascadia-code-italic.woff2") format("woff2"); !* Chrome 26+, Opera 23+, Firefox 39+ *!*/
+/*}*/
 
 :root {
-  --font-family-heading: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  --font-weight-heading: 700;
+  --font-family-heading: Fraunces, serif;
+  --font-weight-heading: 400;
   --font-weight-heading-code: 500;
-  --font-family-body: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-family-body: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif;
   --font-weight-body: 400;
   --font-weight-body-bold: 700;
   --font-weight-body-code: 375;
@@ -312,18 +352,34 @@ body {
 h1, h2, h3, h4 {
   font-weight: var(--font-weight-heading);
   font-family: var(--font-family-heading);
+  font-variation-settings: "SOFT" 50, "WONK" 0;
   line-height: 1.15;
   color: var(--color-content);
 }
 
 h1 {
-  font-size: var(--step-5);
+  font-size: var(--step-4);
   margin-top: var(--space-xl);
+}
+
+h2 {
+  font-size: var(--step-3);
+  margin-top: var(--space-xl);
+}
+
+h3 {
+  font-size: var(--step-2);
+  margin-top: var(--space-l);
+}
+
+h4 {
+  font-size: var(--step-1);
+  margin-top: var(--space-l);
 }
 
 p, ul, ol, figcaption {
   font-size: var(--step-0);
-  margin: var(--space-2xs) 0;
+  margin: var(--space-xs) 0;
   line-height: 1.6;
   color: var(--color-content);
 }
@@ -358,7 +414,7 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
   color: var(--color-content-subtle);
 }
 
-caption, figcaption, .post-caption, .small {
+caption, figcaption, .post-caption {
   font-size: var(--step--1);
 }
 
@@ -384,6 +440,13 @@ p a, li a, figcaption a {
 p a:hover, li a:hover, figcaption a:hover {
   border-bottom: 3px solid var(--color-accent);
 }
+
+p a code, li a code, figcaption a code {
+  padding-bottom: 0.5px;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+/* -- Forms ------------------------------------------------------------------------------------- */
 
 .button {
   display: inline-block;
@@ -469,16 +532,126 @@ p a:hover, li a:hover, figcaption a:hover {
 }
 
 
+/* -- Global styles ----------------------------------------------------------------------------- */
+
+.intro {
+  margin-bottom: var(--space-m);
+}
+
+.intro > :last-child {
+  margin-bottom: 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* -- Header and navigation --------------------------------------------------------------------- */
+
+.nav-container {
+  border-bottom: var(--color-border) solid 1px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: var(--space-s);
+  padding: var(--space-s) 0;
+  width: var(--full-bleed-width);
+  margin: 0 auto;
+}
+
+nav ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+
+nav ul :last-child {
+  margin-right: 0;
+}
+
+.nav-list {
+  column-gap: var(--space-s);
+  row-gap: var(--space-2xs);
+}
+
+.nav-list li {
+}
+
+.active-nav-item {
+  border-bottom-width: 4px;
+}
+
+.nav-brand {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--step-1);
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.nav-brand img {
+  height: var(--step-1);
+}
+
+footer {
+  text-align: center;
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-l);
+}
+
+footer p {
+  font-size: var(--step--1);
+  color: var(--color-content-subtle);
+}
+
+footer a, .footer-link a {
+  color: var(--color-content-subtle);
+  border-bottom-color: var(--color-content-subtle);
+  border-bottom-width: 1px;
+}
+
+footer a:hover, .footer-link a:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+
 /* -- Page -------------------------------------------------------------------------------------- */
 
 html, body {
-  font-family: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-body);
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-content);
   transition: background-color 300ms, color 300ms;
 }
-p, h1 {
+
+p, ul, ol, caption, figcaption, h1, h2, h3, h4 {
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+home p, home h1 {
   text-align: center;
   transition: color 300ms;
 }
@@ -514,6 +687,7 @@ p, h1 {
   align-items: center;
   gap: var(--space-s);
   margin-top: var(--space-m);
+  margin-bottom: var(--space-m);
 }
 .flow-row a {
   border-bottom: none !important;
@@ -524,4 +698,10 @@ p, h1 {
 .caption {
   font-size: var(--step--1);
   margin: 0;
+}
+
+.footer-link {
+  color: var(--color-content-subtle);
+  font-size: var(--step--1);
+  margin: var(--space-3xs);
 }

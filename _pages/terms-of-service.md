@@ -1,12 +1,13 @@
 ---
-title: Privacy Policy
-description: Privacy Policy for Heypenny
+title: Terms of Service
+description: Terms of Service for Heypenny
 last_modified_at: 2024-06-20 10:00:00 -0700
+layout: heypenny
 ---
 
 <div
   name="termly-embed"
-  data-id="c97dcb5f-9f13-4de9-b05d-c1616a85f723"
+  data-id="669650ed-5e12-4490-ac6e-7944115db7d0"
   style="max-width: var(--content-width); margin: auto"
 ></div>
 <script type="text/javascript">(function(d, s, id) {
