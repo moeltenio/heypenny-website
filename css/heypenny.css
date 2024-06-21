@@ -701,6 +701,7 @@ home p, home h1 {
 }
 
 .footer-link {
+  color: var(--color-content-subtle);
   font-size: var(--step--1);
   margin: var(--space-3xs);
 }
