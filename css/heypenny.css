@@ -70,6 +70,7 @@ legend, fieldset, select, textarea, input, button {
   --color-content-emphasized: hsla(var(--color-content-hsl), 1);
   --color-content-secondary: hsla(var(--color-content-hsl), 0.6);
   --color-content-subtle: hsla(var(--color-content-hsl), 0.3);
+  --color-border: hsla(var(--color-content-hsl), 0.10);
 
   --color-accent-rgb: var(--color-eggplant-on-white-rgb);
   --color-accent: rgb(var(--color-accent-rgb));
@@ -609,7 +610,7 @@ nav ul :last-child {
 }
 
 .nav-brand img {
-  height: var(--step-1);
+  height: var(--step-2);
 }
 
 footer {
@@ -687,7 +688,7 @@ home p, home h1 {
   align-items: center;
   gap: var(--space-s);
   margin-top: var(--space-m);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-xl);
 }
 .flow-row a {
   border-bottom: none !important;
