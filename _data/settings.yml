@@ -3,12 +3,9 @@ basic_settings:
   site_tagline: >-
     A mobile app to reduce financial stress among friends.
 
-#header_settings:
-#  logo_image:
-#  logo_width: 200
-#  overlay_opacity: 0.7
-
-#menu_settings:
-#  menu_items:
-#    - title: 'Photography'
-#      url: '/photos'
+menu_settings:
+  menu_items:
+    - title: 'Contact us'
+      url: '/contact'
+    - title: 'Community'
+      url: 'https://community.moelten.io'

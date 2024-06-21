@@ -39,7 +39,22 @@
 </head>
 
 <body>
-  {{ content }}
+
+  {% if page.hide_header_footer != true %}
+  {% include header.html %}
+
+  {% capture featured_image_position %}{% if page.featured_image_position %}{{ page.featured_image_position }}{% else %}center center{% endif %}{% endcapture %}
+  <main class="page">
+  {% endif %}
+
+    {{ content }}
+
+  {% if page.hide_header_footer != true %}
+  </main>
+
+  {% include footer.html %}
+  {% endif %}
+
 </body>
 
 </html>
