@@ -698,17 +698,13 @@ home p, home h1 {
 }
 .inside .caption {
   font-size: var(--step--1);
-  margin: 0;
+  margin: 0 0 var(--space-m) 0;
   text-align: center;
 }
 
 footer.compact {
   margin-top: var(--space-m);
   margin-bottom: 0;
-}
-
-.flow-row + p {
-  margin-bottom: var(--space-m);
 }
 
 .footer-link {
