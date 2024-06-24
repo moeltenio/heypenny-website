@@ -1,0 +1,37 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "web",
+      "site": "https://heypenny.money"
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.moelten.heypenny",
+      "sha256_cert_fingerprints": [
+        "81:14:6F:0B:EC:8D:78:69:E7:77:F9:5D:4D:97:54:8D:B1:CE:BE:9B:79:37:CC:0C:47:3B:6B:EA:61:A1:25:09"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.moelten.heypenny.debug",
+      "sha256_cert_fingerprints": [
+        "44:7A:60:1F:3E:EE:A4:0A:D0:87:38:1E:E3:C6:62:8E:DE:19:59:1F:9D:29:BE:B9:B6:A5:6D:94:86:9F:95:43"
+      ]
+    }
+  }
+]
