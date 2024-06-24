@@ -3,8 +3,13 @@
     "apps": [],
     "details": [
       {
-        "appIDs": [],
-        "components": []
+        "appIDs": [
+          "U6J478KTGV.io.moelten.heypenny",
+          "U6J478KTGV.io.moelten.heypenny.debug"
+        ],
+        "paths": [
+          "/invite"
+        ]
       }
     ]
   },
