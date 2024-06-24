@@ -688,7 +688,7 @@ home p, home h1 {
   align-items: center;
   gap: var(--space-s);
   margin-top: var(--space-m);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-m);
 }
 .flow-row a {
   border-bottom: none !important;
@@ -696,9 +696,19 @@ home p, home h1 {
 .store-icon {
   height: calc(var(--space-s) * 2.5)
 }
-.caption {
+.inside .caption {
   font-size: var(--step--1);
   margin: 0;
+  text-align: center;
+}
+
+footer.compact {
+  margin-top: var(--space-m);
+  margin-bottom: 0;
+}
+
+.flow-row + p {
+  margin-bottom: var(--space-m);
 }
 
 .footer-link {
