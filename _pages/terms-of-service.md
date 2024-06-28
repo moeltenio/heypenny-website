@@ -1,7 +1,7 @@
 ---
 title: Terms of Service
 description: Terms of Service for Heypenny
-last_modified_at: 2024-06-20 10:00:00 -0700
+last_modified_at: 2024-06-27 10:00:00 -0700
 layout: heypenny
 ---
 
