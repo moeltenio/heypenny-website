@@ -191,6 +191,39 @@ legend, fieldset, select, textarea, input, button {
     --color-eggplant-text: var(--color-eggplant-on-dark);
     --color-subtle-text: var(--color-subtle-on-dark);
   }
+
+  .always-light {
+    --color-background: var(--color-background-light);
+
+    --color-content-hsl: var(--color-content-on-light-hsl);
+    --color-content: hsla(var(--color-content-hsl), 0.9);
+    --color-content-emphasized: hsla(var(--color-content-hsl), 1);
+    --color-content-secondary: hsla(var(--color-content-hsl), 0.6);
+    --color-content-subtle: hsla(var(--color-content-hsl), 0.3);
+    --color-border: hsla(var(--color-content-hsl), 0.10);
+
+    --color-accent-rgb: var(--color-eggplant-on-light-rgb);
+    --color-accent: rgb(var(--color-accent-rgb));
+    --color-accent-background: rgba(var(--color-accent-rgb), 0.10);
+
+    /* Text colors */
+    --color-goji-text: var(--color-goji-on-light);
+    --color-peach-text: var(--color-peach-on-light);
+    --color-tangerine-text: var(--color-tangerine-on-light);
+    --color-lemon-text: var(--color-lemon-on-light);
+    --color-lime-text: var(--color-lime-on-light);
+    --color-turteal-text: var(--color-turteal-on-light);
+    --color-food-coloring-text: var(--color-food-coloring-on-light);
+    --color-amf-text: var(--color-amf-on-light);
+    --color-blue-raspberry-text: var(--color-blue-raspberry-on-light);
+    --color-blueberry-text: var(--color-blueberry-on-light);
+    --color-grape-text: var(--color-grape-on-light);
+    --color-eggplant-text: var(--color-eggplant-on-light);
+    --color-subtle-text: var(--color-subtle-on-light);
+
+    background: var(--color-background);
+    padding-top: 1px;
+  }
 }
 
 .dark {
@@ -750,7 +783,6 @@ li p {
 .home section {
   border-bottom: var(--color-border) solid 1px;
   width: 100vw;
-  /*height: calc(100vh - var(--step-2) - 2 * var(--space-s));*/
 }
 
 section h1:first-child, section h2:first-child {
@@ -761,10 +793,10 @@ section h1:first-child, section h2:first-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 section.hero {
-  min-height: 80vh;
+  min-height: 75vh;
   height: auto;
   padding: var(--space-xl-2xl) 0;
 }

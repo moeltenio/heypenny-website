@@ -44,7 +44,7 @@
   {% include header.html %}
 
   {% capture featured_image_position %}{% if page.featured_image_position %}{{ page.featured_image_position }}{% else %}center center{% endif %}{% endcapture %}
-  <main class="page">
+  <main class="page{% if page.always_light %} always-light{% endif %}">
   {% endif %}
 
     {{ content }}
