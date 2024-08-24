@@ -8,4 +8,4 @@ menu_settings:
     - title: 'Contact us'
       url: '/contact'
     - title: 'Community'
-      url: 'https://community.heypenny.money'
+      url: '/community'
