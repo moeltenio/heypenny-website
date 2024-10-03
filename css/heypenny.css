@@ -97,7 +97,7 @@ legend, fieldset, select, textarea, input, button {
   /* Tangerine */
   --color-tangerine-on-dark: #ffaf5e;
   --color-tangerine-bright: #f08e00;
-  --color-tangerine-bright-background: #f08e0026;
+  --color-tangerine-bright-background: #f08e001A;
   --color-tangerine-on-light: #b16801;
 
   /* Lemon */
@@ -176,6 +176,8 @@ legend, fieldset, select, textarea, input, button {
     --color-accent-rgb: var(--color-eggplant-on-dark-rgb);
     --color-accent: rgb(var(--color-accent-rgb));
     --color-accent-background: rgba(var(--color-accent-rgb), 0.15);
+
+    --color-tangerine-bright-background: #f08e0026;
 
     /* Text colors */
     --color-goji-text: var(--color-goji-on-dark);
@@ -418,6 +420,7 @@ legend, fieldset, select, textarea, input, button {
   font-display: swap;
   src: local(""), url("../fonts/lato.woff2") format("woff2");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
@@ -576,10 +579,12 @@ p a code, li a code, figcaption a code {
   transition-duration: var(--anim-duration-slow);
   transition-timing-function: var(--anim-easing-emphasized);
 }
+
 .button.filled {
   background: var(--color-eggplant-bright);
   border: none !important;
 }
+
 .button.outlined {
   color: var(--color-accent);
   border: 2px solid var(--color-accent);
@@ -589,10 +594,12 @@ p a code, li a code, figcaption a code {
   transition-duration: var(--anim-duration-fast);
   transition-timing-function: var(--anim-easing);
 }
+
 .button.filled:hover {
   color: var(--color-content-emphasized);
   filter: brightness(110%);
 }
+
 .button.outlined:hover {
   background-color: var(--color-accent-background);
 }
@@ -610,12 +617,15 @@ p a code, li a code, figcaption a code {
   transition-timing-function: var(--anim-easing-emphasized);
   transition-duration: var(--anim-duration-slow);
 }
+
 .button-inline .arrow {
   fill: var(--color-content);
 }
+
 .button.filled .arrow {
   fill: var(--color-content-emphasized);
 }
+
 .button.outlined .arrow {
   fill: var(--color-accent);
 }
@@ -625,9 +635,11 @@ p a code, li a code, figcaption a code {
   transition-timing-function: var(--anim-easing);
   transition-duration: var(--anim-duration-fast);
 }
-.button.filled:hover .arrow, .button.filled:focus .arrow  {
+
+.button.filled:hover .arrow, .button.filled:focus .arrow {
   fill: var(--color-content-emphasized)
 }
+
 .button.outlined:hover .arrow, .button.outlined:focus .arrow, .button-inline:hover .arrow {
   fill: var(--color-accent);
 }
@@ -814,15 +826,18 @@ section h1:first-child, section h2:first-child {
   align-items: center;
   min-height: 100vh;
 }
+
 section.hero {
   min-height: 75vh;
   height: auto;
   padding: var(--space-xl-2xl) 0;
 }
+
 .hero p, .hero h1 {
   text-align: center;
   transition: color 300ms;
 }
+
 .hero .inside {
   display: flex;
   align-items: center;
@@ -833,18 +848,22 @@ section.hero {
   flex: 1;
   justify-content: center;
 }
+
 .hero .inside .caption {
   margin: 0 0 var(--space-m) 0;
   text-align: center;
 }
+
 .wordmark {
   height: var(--space-xl);
   width: auto;
 }
+
 .wordmark img {
   height: var(--space-xl);
   width: auto;
 }
+
 .flow-row {
   display: flex;
   flex-direction: row;
@@ -855,9 +874,11 @@ section.hero {
   margin-top: var(--space-m);
   margin-bottom: var(--space-m);
 }
+
 .flow-row a {
   border-bottom: none !important;
 }
+
 .store-icon {
   height: calc(var(--space-s) * 2.5)
 }
@@ -873,9 +894,11 @@ section.hero {
   margin-right: auto;
   margin-left: auto;
 }
+
 .receipt .two-column {
   flex-direction: row;
 }
+
 .groups .two-column {
   flex-direction: row-reverse;
 }
@@ -939,11 +962,12 @@ ul.premium-list > li {
   font-size: var(--step-3);
 }
 
-.premium-heading img {
+.premium-heading svg {
   height: var(--step-3);
   width: auto;
   display: inline-block;
   vertical-align: middle;
+  color: var(--color-tangerine-bright);
 }
 
 .premium-tag {
@@ -953,11 +977,12 @@ ul.premium-list > li {
   font-variation-settings: "SOFT" 50, "WONK" 0;
 }
 
-.premium-tag img {
+.premium-tag svg {
   height: var(--step-1);
   width: auto;
   display: inline-block;
   vertical-align: middle;
+  color: var(--color-tangerine-bright);
 }
 
 .premium-tag a {
