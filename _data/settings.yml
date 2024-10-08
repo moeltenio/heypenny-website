@@ -5,7 +5,9 @@ basic_settings:
 
 menu_settings:
   menu_items:
-    - title: 'Contact us'
-      url: '/contact'
+    - title: 'Premium'
+      url: '/premium'
     - title: 'Community'
       url: '/community'
+    - title: 'Support'
+      url: '/contact'
