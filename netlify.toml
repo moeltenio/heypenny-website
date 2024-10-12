@@ -1,0 +1,11 @@
+[[redirects]]
+from = "/community"
+to = "https://discord.gg/HAPJm87mdW"
+status = 302
+force = false
+
+[[redirects]]
+from = "/coaster"
+to = "/?r=coaster"
+status = 302
+force = false
