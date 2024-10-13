@@ -828,7 +828,7 @@ section h1:first-child, section h2:first-child {
 }
 
 section.hero {
-  min-height: 75vh;
+  min-height: 65vh;
   height: auto;
   padding: var(--space-xl-2xl) 0;
 }
