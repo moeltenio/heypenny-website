@@ -29,14 +29,24 @@ sitemap: false
             alt="Download the Android app on the Play Store" class="store-icon"/>
       </a>
     </p>
-    <p class="caption">Follow this link again after you have the app installed.</p>
+    <p class="caption" id="no-fallback">Follow this link again after you have the app installed</p>
+    <p class="caption" id="invite-fallback" style="display: none">After you install the app, follow this link again or <a id="invite-link" href="heypenny://invite">click&nbsp;here</a></p>
+    <script>
+      const searchParams = new URLSearchParams(window.location.search);
+      const inviteId = searchParams.get('i');
+      if (inviteId) {
+        document.getElementById('invite-link').href = "heypenny://invite?i=" + inviteId
+        document.getElementById('invite-fallback').style.display = null
+        document.getElementById('no-fallback').style.display = "none"
+      }
+    </script>
     <footer class="compact">
       <p class="footer-link">
         <a href="/terms-of-service">Terms of Service</a>&emsp;·&emsp;<a href="/privacy-policy">Privacy
           Policy</a>
       </p>
       <p class="footer-link">
-        <a href="/contact">Contact us</a>&emsp;·&emsp;<a href="/community">Community</a>
+        <a href="/community">Community</a>&emsp;·&emsp;<a href="/contact">Support</a>
       </p>
     </footer>
   </div>
