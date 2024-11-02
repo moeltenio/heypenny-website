@@ -12,5 +12,5 @@ group :jekyll_plugins do
   gem "jekyll-target-blank", "~> 2.0.2"
   gem "jekyll-figure", "~> 0.2.0"
   gem 'jekyll-redirect-from', "~> 0.16.0"
-  gem "webrick", "~> 1.8.1"  # Ruby 3 support
+  gem "webrick", "~> 1.9.0"  # Ruby 3 support
 end
