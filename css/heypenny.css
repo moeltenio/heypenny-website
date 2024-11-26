@@ -538,7 +538,7 @@ caption, figcaption, .post-caption, .caption {
 a {
   color: var(--color-content-emphasized);
   text-decoration: none;
-  transition-property: border-bottom-width, color;
+  transition-property: border-bottom-width, border-bottom-color, color;
   transition-duration: var(--anim-duration-slow);
   transition-timing-function: var(--anim-easing-emphasized);
 }
@@ -935,6 +935,10 @@ ul.premium-list {
 
 ul.premium-list > li {
   padding-left: var(--space-2xs);
+}
+
+ul.premium-list > li .caption {
+  color: var(--color-content-secondary);
 }
 
 .premium-warning {
