@@ -538,7 +538,7 @@ caption, figcaption, .post-caption, .caption {
 a {
   color: var(--color-content-emphasized);
   text-decoration: none;
-  transition-property: border-bottom-width, color;
+  transition-property: border-bottom-width, border-bottom-color, color;
   transition-duration: var(--anim-duration-slow);
   transition-timing-function: var(--anim-easing-emphasized);
 }
@@ -937,6 +937,10 @@ ul.premium-list > li {
   padding-left: var(--space-2xs);
 }
 
+ul.premium-list > li .caption {
+  color: var(--color-content-secondary);
+}
+
 .premium-warning {
   background-color: var(--color-tangerine-bright-background);
   max-width: var(--full-bleed-width);
@@ -956,6 +960,21 @@ ul.premium-list > li {
 .premium-price {
   font-weight: var(--font-weight-body-bold);
   color: var(--color-tangerine-text);
+}
+
+.stack {
+  display: inline-block;
+}
+.stack.middle {
+  margin: 0 var(--space-2xs);
+}
+
+.stacked {
+  display: block;
+}
+.stacked.caption {
+  margin-top: calc(-1 * var(--space-3xs));
+  color: var(--color-content-secondary);
 }
 
 .premium-heading {
