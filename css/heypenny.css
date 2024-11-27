@@ -962,6 +962,21 @@ ul.premium-list > li .caption {
   color: var(--color-tangerine-text);
 }
 
+.stack {
+  display: inline-block;
+}
+.stack.middle {
+  margin: 0 var(--space-2xs);
+}
+
+.stacked {
+  display: block;
+}
+.stacked.caption {
+  margin-top: calc(-1 * var(--space-3xs));
+  color: var(--color-content-secondary);
+}
+
 .premium-heading {
   font-size: var(--step-3);
 }
