@@ -1,6 +1,6 @@
 ---
 layout: heypenny
-title: Join my group on Heypenny
+title: Get Heypenny premium for free
 hide_title_suffix: true
 description: Expenses with friends made easy
 featured_image: /images/heypenny/heypenny-share-preview.png
@@ -10,7 +10,8 @@ sitemap: false
 
 <div class="hero home">
   <div class="inside">
-    <p>Join my group on</p>
+    <p id="valid-header">Get Heypenny premium for free</p>
+    <p id="invalid-header" style="display: none;">Join for free</p>
     <a href="/">
       <picture class="wordmark">
         <source
@@ -19,9 +20,6 @@ sitemap: false
         <img src="/images/heypenny/heypenny-wordmark.svg" alt="Heypenny app logo">
       </picture>
     </a>
-    <p id="cta-with-data" style="display: none; margin-bottom: 0;">
-      <b id="cta-inviter-name">Someone</b> invites you to <b id="cta-group-name">a group</b>
-    </p>
     <p class="flow-row">
       <a href="https://apps.apple.com/app/id6478797377">
         <img src="/images/distribution/app-store-badge.svg"
@@ -32,27 +30,39 @@ sitemap: false
             alt="Download the Android app on the Play Store" class="store-icon"/>
       </a>
     </p>
+    <div class="premium-warning" id="premium-link-invalid"
+        style="display: none; margin-bottom: 0; margin-top: 0;">
+      <p>This premium invite has been used too many times.</p>
+      <p>You can still download the app and create a free account above.</p>
+    </div>
     <p class="caption" id="no-fallback">Follow this link again after you have the app installed</p>
-    <p class="caption" id="invite-fallback" style="display: none">After you install the app, follow this link again or <a id="invite-link" href="heypenny://invite">click&nbsp;here</a></p>
+    <p class="caption" id="invite-fallback" style="display: none">After you install the app, follow
+      this link again or <a id="invite-link" href="heypenny://join">click&nbsp;here</a></p>
     <script>
       const searchParams = new URLSearchParams(window.location.search);
       const inviteId = searchParams.get('i');
       if (inviteId) {
-        document.getElementById('invite-link').href = "heypenny://invite?i=" + inviteId
+        document.getElementById('invite-link').href = "heypenny://join?i=" + inviteId
         document.getElementById('invite-fallback').style.display = null
         document.getElementById('no-fallback').style.display = "none"
+        document.getElementById('premium-link-invalid').style.display = "none"
+        document.getElementById('valid-header').style.display = null
+        document.getElementById('invalid-header').style.display = "none"
       }
 
       fetch('https://heypenny.money/invite/details?inviteId=' + inviteId)
         .then((res) => res.json())
         .then((data) => {
           console.log(data)
-          if (data.inviterFirstName && data.groupName) {
-            document.getElementById('cta-with-data').style.display = null
-            document.getElementById('cta-group-name').textContent = data.groupName
-            document.getElementById('cta-inviter-name').textContent = data.inviterFirstName
+          if (!data.isStillValid || !data.givesPremium) {
+            document.getElementById('invite-fallback').style.display = "none"
+            document.getElementById('no-fallback').style.display = "none"
+            document.getElementById('premium-link-invalid').style.display = null
+            document.getElementById('valid-header').style.display = "none"
+            document.getElementById('invalid-header').style.display = null
           }
         })
+
     </script>
     <footer class="compact">
       <p class="footer-link">
