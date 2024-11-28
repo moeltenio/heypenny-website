@@ -43,7 +43,7 @@ sitemap: false
         document.getElementById('no-fallback').style.display = "none"
       }
 
-      fetch('https://heypenny.money/invite/details?inviteId=' + inviteId)
+      fetch('https://api.heypenny.money/invite/details?inviteId=' + inviteId)
         .then((res) => res.json())
         .then((data) => {
           console.log(data)
