@@ -8,6 +8,14 @@ hide_header_footer: true
 sitemap: false
 ---
 
+<script>
+  if (!window.location.host.includes('127.0.0.1') && !window.location.host.includes('localhost')) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const inviteId = searchParams.get('i') ?? 'none';
+    posthog.capture('invite-page-viewed', {inviteId: inviteId})
+  }
+</script>
+
 <div class="hero home">
   <div class="inside">
     <p>Join my group on</p>

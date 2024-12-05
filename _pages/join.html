@@ -8,6 +8,14 @@ hide_header_footer: true
 sitemap: false
 ---
 
+<script>
+  if (!window.location.host.includes('127.0.0.1') && !window.location.host.includes('localhost')) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const inviteId = searchParams.get('i') ?? 'none';
+    posthog.capture('join-page-viewed', {inviteId: inviteId})
+  }
+</script>
+
 <div class="hero home">
   <div class="inside">
     <p id="valid-header">Get Heypenny premium for free</p>
@@ -32,8 +40,8 @@ sitemap: false
     </p>
     <div class="premium-warning" id="premium-link-invalid"
         style="display: none; margin-bottom: 0; margin-top: 0;">
-      <p>This premium invite has been used too many times.</p>
-      <p>You can still download the app and create a free account above.</p>
+      <p>This premium invite has expired.</p>
+      <p>You can still create a free account by downloading the app above.</p>
     </div>
     <p class="caption" id="no-fallback">Follow this link again after you have the app installed</p>
     <p class="caption" id="invite-fallback" style="display: none">After you install the app, follow
@@ -60,6 +68,13 @@ sitemap: false
             document.getElementById('premium-link-invalid').style.display = null
             document.getElementById('valid-header').style.display = "none"
             document.getElementById('invalid-header').style.display = null
+
+            if (
+              !window.location.host.includes('127.0.0.1') &&
+              !window.location.host.includes('localhost')
+            ) {
+              posthog.capture('expired-invite-viewed', {inviteId: inviteId})
+            }
           }
         })
 
