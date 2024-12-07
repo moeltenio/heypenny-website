@@ -1004,13 +1004,21 @@ ul.premium-list > li .caption {
   color: var(--color-tangerine-bright);
 }
 
-.premium-tag a {
+.premium-tag a, a.premium-link {
   border-bottom: none !important;
   font-weight: var(--font-weight-heading);
 }
 
-.premium-tag a:hover {
+.premium-tag a:hover, a.premium-link:hover {
   color: var(--color-tangerine-bright);
+}
+
+h1.join-title {
+  margin-bottom: var(--space-m);
+}
+
+.join-description {
+  margin-bottom: 0;
 }
 
 /* -- Footer ------------------------------------------------------------------------------------ */
