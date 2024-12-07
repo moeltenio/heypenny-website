@@ -18,16 +18,31 @@ sitemap: false
 
 <div class="hero home">
   <div class="inside">
-    <p id="valid-header">Get Heypenny premium for free</p>
-    <p id="invalid-header" style="display: none;">Join for free</p>
-    <a href="/">
-      <picture class="wordmark">
-        <source
-            srcset="/images/heypenny/heypenny-wordmark-dark.svg"
-            media="(prefers-color-scheme: dark)">
-        <img src="/images/heypenny/heypenny-wordmark.svg" alt="Heypenny app logo">
-      </picture>
-    </a>
+    <h1 class="join-title">
+      <a href="/">
+        <picture class="wordmark">
+          <source
+              srcset="/images/heypenny/heypenny-wordmark-dark.svg"
+              media="(prefers-color-scheme: dark)">
+          <img src="/images/heypenny/heypenny-wordmark.svg" alt="Heypenny app logo">
+        </picture>
+      </a>
+      <span class="premium-heading">
+        <a href="/premium" class="premium-link">
+          {% include premium-laurel-leading.html %}
+          premium
+          {% include premium-laurel-trailing.html %}
+        </a>
+      </span>
+    </h1>
+
+    <p id="valid-header" class="join-description">Get Heypenny premium for free</p>
+    <div class="premium-warning" id="premium-link-invalid"
+        style="display: none; margin-bottom: 0; margin-top: 0;">
+      <p>This premium invite has expired.</p>
+      <p>You can still create a free account by downloading the app above.</p>
+    </div>
+
     <p class="flow-row">
       <a href="https://apps.apple.com/app/id6478797377">
         <img src="/images/distribution/app-store-badge.svg"
@@ -38,11 +53,6 @@ sitemap: false
             alt="Download the Android app on the Play Store" class="store-icon"/>
       </a>
     </p>
-    <div class="premium-warning" id="premium-link-invalid"
-        style="display: none; margin-bottom: 0; margin-top: 0;">
-      <p>This premium invite has expired.</p>
-      <p>You can still create a free account by downloading the app above.</p>
-    </div>
     <p class="caption" id="no-fallback">Follow this link again after you have the app installed</p>
     <p class="caption" id="invite-fallback" style="display: none">After you install the app, follow
       this link again or <a id="invite-link" href="heypenny://join">click&nbsp;here</a></p>
@@ -55,7 +65,6 @@ sitemap: false
         document.getElementById('no-fallback').style.display = "none"
         document.getElementById('premium-link-invalid').style.display = "none"
         document.getElementById('valid-header').style.display = null
-        document.getElementById('invalid-header').style.display = "none"
       }
 
       fetch('https://api.heypenny.money/invite/details?inviteId=' + inviteId)
@@ -67,7 +76,6 @@ sitemap: false
             document.getElementById('no-fallback').style.display = "none"
             document.getElementById('premium-link-invalid').style.display = null
             document.getElementById('valid-header').style.display = "none"
-            document.getElementById('invalid-header').style.display = null
 
             if (
               !window.location.host.includes('127.0.0.1') &&
@@ -85,7 +93,7 @@ sitemap: false
           Policy</a>
       </p>
       <p class="footer-link">
-        <a href="/community">Community</a>&emsp;·&emsp;<a href="/contact">Support</a>
+        <a href="/">Home</a>&emsp;·&emsp;<a href="/community">Community</a>&emsp;·&emsp;<a href="/contact">Support</a>
       </p>
     </footer>
   </div>
