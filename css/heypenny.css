@@ -909,7 +909,7 @@ section.hero {
 }
 
 .half-column.screenshots {
-  margin-top: calc(var(--space-m) - var(--space-xl-2xl));
+  margin-top: calc(var(--space-l) - var(--space-xl-2xl));
   margin-bottom: calc(-1 * var(--space-xl-2xl))
 }
 
