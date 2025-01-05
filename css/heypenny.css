@@ -864,6 +864,31 @@ section.hero {
   width: auto;
 }
 
+.logo {
+  height: var(--space-3xl);
+  width: auto;
+  margin-bottom: var(--space-l);
+}
+
+.logo img {
+  height: var(--space-3xl);
+  width: auto;
+}
+
+h1.below-logo {
+  margin-top: 0;
+}
+
+#split-object {
+  transition: width var(--anim-duration-slow) var(--anim-easing-emphasized);
+  color: var(--color-eggplant-text);
+  display: inline-block;
+}
+
+#split-content {
+  display: inline-block;
+}
+
 .flow-row {
   display: flex;
   flex-direction: row;
