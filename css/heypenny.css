@@ -842,8 +842,6 @@ section.hero {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-right: var(--space-s-m);
-  padding-left: var(--space-s-m);
   box-sizing: border-box;
   flex: 1;
   justify-content: center;
@@ -862,6 +860,32 @@ section.hero {
 .wordmark img {
   height: var(--space-xl);
   width: auto;
+}
+
+.logo {
+  height: var(--space-3xl);
+  width: auto;
+  margin-bottom: var(--space-l);
+}
+
+.logo img {
+  height: var(--space-3xl);
+  width: auto;
+}
+
+h1.below-logo {
+  margin-top: 0;
+  max-width: none;
+}
+
+#split-object {
+  transition: width var(--anim-duration-slow) var(--anim-easing-emphasized);
+  color: var(--color-eggplant-text);
+  display: inline-block;
+}
+
+#split-content {
+  display: inline-block;
 }
 
 .flow-row {
