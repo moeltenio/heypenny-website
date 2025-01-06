@@ -842,8 +842,6 @@ section.hero {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-right: var(--space-s-m);
-  padding-left: var(--space-s-m);
   box-sizing: border-box;
   flex: 1;
   justify-content: center;
@@ -877,6 +875,7 @@ section.hero {
 
 h1.below-logo {
   margin-top: 0;
+  max-width: none;
 }
 
 #split-object {
