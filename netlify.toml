@@ -11,6 +11,12 @@ status = 302
 force = true
 
 [[redirects]]
+from = "/sticker"
+to = "/?r=sticker"
+status = 302
+force = true
+
+[[redirects]]
 from = "/a/static/*"
 to = "https://us-assets.i.posthog.com/static/:splat"
 host = "us-assets.i.posthog.com"
