@@ -49,17 +49,15 @@ featured_image: /images/heypenny/heypenny-share-preview.png
           ]
           let displayed = 0
           animateSectionWidth(document.getElementById("split-object"))
-          setTimeout(function () {
-            setInterval(function () {
-              displayed++
-              if (displayed >= options.length) {
-                displayed = 0
-              }
+          setInterval(function () {
+            displayed++
+            if (displayed >= options.length) {
+              displayed = 0
+            }
 
-              document.getElementById("split-content").textContent = options[displayed]
-              animateSectionWidth(document.getElementById("split-object"))
-            }, 3000);
-          }, 1000);
+            document.getElementById("split-content").textContent = options[displayed]
+            animateSectionWidth(document.getElementById("split-object"))
+          }, 2000);
         }
 
         window.onload = function () {
@@ -78,7 +76,7 @@ featured_image: /images/heypenny/heypenny-share-preview.png
       </p>
       <p class="footer-link compact">
         <a href="/terms-of-service">Terms of Service</a>&emsp;·&emsp;<a href="/privacy-policy">Privacy
-          Policy</a>
+        Policy</a>
       </p>
     </div>
   </section>
